@@ -1,7 +1,4 @@
-from Category import category
-
-
-class product:
+class Product:
     
     def __init__(self, date_fabrication, is_active):
         self.date_fabrication = date_fabrication
