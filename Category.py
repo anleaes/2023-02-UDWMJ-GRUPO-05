@@ -1,8 +1,8 @@
 class category:
 
-    def __init__(self, id , nome , description):
+    def __init__(self, id , name , description):
        
        self.id = id 
-       self.nome = nome
+       self.name = name
        self.description = description
        
