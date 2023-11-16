@@ -1,7 +1,7 @@
 db.sqlite3.txt/*
 /projetoapp/__pycache__/*
-/projetoapp/apps/categories/__pycache__/*
-/projetoapp/apps/categories/migrations/__pycache__/*
-/projetoapp/apps/core/__pycache__/*
-/projetoapp/apps/core/migrations/__pycache__/*
+/apps/categories/__pycache__/*
+/apps/categories/migrations/__pycache__/*
+/apps/core/__pycache__/*
+/apps/core/migrations/__pycache__/*
 
