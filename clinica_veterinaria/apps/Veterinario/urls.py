@@ -1,6 +1,9 @@
 from django.urls import path
-from .views import cadastrar_Veterinario
+from Veterinario import views
 
 urlpatterns = [
-    path('cadastrar_veterinario/', cadastrar_Veterinario, name='cadastrar_veterinario'),
+    path('', views.listar_Veterinarios, name='listar_veterinarios'),
+    path('cadastrar/', views.cadastrar_Veterinario, name='cadastrar_veterinario'),
+    path('atualizar/<int:id>', views.atualizar_Veterinario, name='atualizar_veterinario'),
+    path('excluir/<int:id>', views.excluir_Veterinario, name='excluir_veterinario'),
 ]
