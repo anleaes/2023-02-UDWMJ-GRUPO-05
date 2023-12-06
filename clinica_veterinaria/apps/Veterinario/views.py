@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from Veterinario.forms import VeterinarioForm
 from Veterinario.models import Veterinario
 
@@ -20,17 +20,7 @@ def cadastrar_Veterinario(request):
     return render(request, 'Veterinario/cadastrar_veterinario.html', {'form': form})
 
 
-#def excluir_veterinario(request, id):
-#  veterinario = Veterinario.objects.get(id=id)
-#  if request.method == "POST":
-#    veterinario.delete()
-#    # return render(request, 'Veterinario/listar_veterinarios.html', {'veterinarios': veterinarios})
-#    return redirect('listar_veterinarios')
-#  return render(request, 'Veterinario/excluir_veterinario.html', {'veterinario': veterinario})
-
 def excluir_veterinario(request, id):
-    veterinario = Veterinario.objects.get(id=id)
-    if request.method == "POST":
-        veterinario.delete()
-        return redirect('veterinario:listar_veterinarios')
-    return render(request, 'Veterinario/excluir_veterinario.html', {'veterinario': veterinario})
+    veterinario = get_object_or_404(Veterinario, pk=id)
+    veterinario.delete()
+    return redirect('listar_veterinarios')
