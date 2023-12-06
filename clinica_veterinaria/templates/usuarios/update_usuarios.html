@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        <title>{% block title %}Update animais{% endblock title %}</title>
+        <title>{% block title %}Update usuarios{% endblock title %}</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -20,9 +20,10 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
-                            <a class="dropdown-item" href="{% url 'create_animal' %}">Cadastrar pet</a>
-                            <a class="dropdown-item" href="#">deletar pet</a>
-                            <a class="dropdown-item" href="{% url 'index_animal' %}">Listar Pets</a>
+                            <a class="dropdown-item" href="{% url 'index_usuario' %}">Usuario</a>
+                            <a class="dropdown-item" href="{% url 'create_usuario' %}">cadastrar Usuario</a>
+                            <a class="dropdown-item" href="#">Deletar Usaurio</a>
+
                         </div>
                     </li>
                 </ul>
@@ -32,11 +33,11 @@
                 </form>
             </div>
         </nav>
-        <h1>Alterar Animal- {{animal.name}}</h1>
+        <h1>Alterar Usuario- {{usuario.name}}</h1>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="cadastrar">
+            <input type="submit" value="Alterar">
         </form>
         <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
         <script src="{% static 'js/jquery.mask.min.js' %}"></script>
