@@ -14,7 +14,7 @@ class Veterinario(models.Model):
     ]
     
     nome = models.CharField(max_length=255)
-    especializacao = models.CharField(maX_lenght=255, choices=ESPECIALIZACAO_ESCOLHA)
+    especializacao = models.CharField(max_length=255, choices=ESPECIALIZACAO_ESCOLHA)
     
     def __str__(self):
         return self.nome
