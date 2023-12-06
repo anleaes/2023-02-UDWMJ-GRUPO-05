@@ -13,7 +13,7 @@ def cadastrar_Veterinario(request):
         form = VeterinarioForm(request.POST)   # talvez seja necessario alterar por conta do nome 
         if form.is_valid():
             form.save()
-            return redirect('lsitar_veterinarios') # redireciona para o index de veterinarios              
+            return redirect('listar_veterinarios') # redireciona para o index de veterinarios              
     else:
         form = VeterinarioForm()
         
