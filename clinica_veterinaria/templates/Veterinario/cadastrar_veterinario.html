@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        <title>{% block title %}Cadastrar animais{% endblock title %}</title>
+        <title>{% block title %}Cadastrar Veterinário{% endblock title %}</title>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -22,7 +23,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown05">
                             <a class="dropdown-item" href="#">atualizar Vet</a>
                             <a class="dropdown-item" href="#">deletar Vet</a>
-                            <a class="dropdown-item" href="{% url 'index' %}">listar Vet</a>
+                            <a class="dropdown-item" href="{% url 'cadastrar_veterinario' %}">listar Vet</a>
 
                         </div>
                     </li>
