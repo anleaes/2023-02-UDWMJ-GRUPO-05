@@ -1,18 +1,17 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>{% block title %}Clinica Veterinaria{% endblock title %}</title>
+    <title>{% block title %}lista animais{% endblock title %}</title>
 </head>
+
+    
 <body>
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Clinica Veterinaria</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,11 +22,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown05">
-                        <a class="dropdown-item" href="#">Clientes</a>
-                        <a class="dropdown-item" href="#">Pedidos</a>
-                        <a class="dropdown-item" href="#">Produtos</a>
-                        <a class="dropdown-item" href="#">Categorias</a>
-                        <a class="dropdown-item" href="{% url 'index_animal' %}">Pets</a>
+                        <a class="dropdown-item" href="#">update pet</a>
+                        <a class="dropdown-item" href="#">deletar pet</a>
+                        <a class="dropdown-item" href="{% url 'create_animal' %}">cadastrar Pet</a>
                     </div>
                 </li>
             </ul>
@@ -35,20 +32,15 @@
                 <input class="form-control" name="query" type="text" aria-label="Buscar" style="margin-right: 10px">
                 <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
             </form>
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nome de usuario</a>
-                        <div class="dropdown-menu" aria-labelledby="dropdown05">
-                            <a class="dropdown-item" href="#">Trocar senha</a>
-                            <a class="dropdown-item" href="#">Conta</a>                            
-                            <a class="dropdown-item" href="#">Sair</a>
-                        </div>
-                    </li>
-                </ul>
         </div>
     </nav>
-
     
+    <p>Lista Animais</p>
+    <ul>
+        {% for animal in animals %}
+            <li><a>Id:</a>{{animal.id}} <a> | Nome: </a>{{ animal.name }} <a> | Idade: </a>{{animal.age}}<a> | Peso: </a> {{animal.weight}}</li>
+        {% endfor %}
+    </ul>
     <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.mask.min.js' %}"></script>
     <script src="{% static 'js/jquery-ui.js' %}"></script>
