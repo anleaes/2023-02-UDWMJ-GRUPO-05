@@ -20,19 +20,17 @@ def cadastrar_Veterinario(request):
     return render(request, 'Veterinario/cadastrar_veterinario.html', {'form': form})
 
 
+#def excluir_veterinario(request, id):
+#  veterinario = Veterinario.objects.get(id=id)
+#  if request.method == "POST":
+#    veterinario.delete()
+#    # return render(request, 'Veterinario/listar_veterinarios.html', {'veterinarios': veterinarios})
+#    return redirect('listar_veterinarios')
+#  return render(request, 'Veterinario/excluir_veterinario.html', {'veterinario': veterinario})
 
-def atualizar_Veterinario(request, id):
-    veterinario = Veterinario.objects.get(id = id)
-    form = VeterinarioForm(request.POST or None, instance = veterinario)
-    if form.is_valid():
-        form.save()
-        return redirect('listar_veterinarios')
-    return render(request, 'Veterinario/atualizar_veterinario.html', {"form" : form, 'veterinario': veterinario })
-
-
-def excluir_Veterinario(request, id):
-    veterinario = Veterinario.objects.get(id = id)
+def excluir_veterinario(request, id):
+    veterinario = Veterinario.objects.get(id=id)
     if request.method == "POST":
         veterinario.delete()
-        return redirect('listar_veterinarios')
-    return render(request, 'Veterinario/exluir_veterinario.html', {'veterinario': veterinario})
+        return redirect('veterinario:listar_veterinarios')
+    return render(request, 'Veterinario/excluir_veterinario.html', {'veterinario': veterinario})
