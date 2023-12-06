@@ -5,7 +5,7 @@ from Veterinario.models import Veterinario
 
 def listar_Veterinarios(request):
     veterinarios = Veterinario.objects.all()
-    return render(request, 'listar_veterinarios.html', {'veterinarios': veterinarios})
+    return render(request, 'Veterinario/listar_veterinarios.html', {'veterinarios': veterinarios})
 
 
 def cadastrar_Veterinario(request):
@@ -13,11 +13,11 @@ def cadastrar_Veterinario(request):
         form = VeterinarioForm(request.POST)   # talvez seja necessario alterar por conta do nome 
         if form.is_valid():
             form.save()
-            return redirect('listar_veterinarios') # redireciona para o index de veterinarios              
+            return redirect("listar_veterinarios") # redireciona para o index de veterinarios              
     else:
         form = VeterinarioForm()
         
-    return render(request, 'cadastrar_veterinario.html', {'form': form})
+    return render(request, 'Veterinario/cadastrar_veterinario.html', {'form': form})
 
 
 
@@ -34,5 +34,5 @@ def excluir_Veterinario(request, id):
     veterinario = Veterinario.objects.get(id = id)
     if request.method == "POST":
         veterinario.delete()
-        return redirect('listar_Veterinarios')
+        return redirect('listar_veterinarios')
     return render(request, 'Veterinario/exluir_veterinario.html', {'veterinario': veterinario})
