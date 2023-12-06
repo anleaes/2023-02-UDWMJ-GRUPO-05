@@ -19,3 +19,19 @@ def create_animal(request):
     else:
         form = AnimalForm()
     return render(request, 'animals/create_animal.html', {'form': form})
+
+def update_animal(request, id):
+    animal = Animal.objects.get(id = id)
+    form = AnimalForm(request.POST or None, instance = animal)
+    if form.is_valid():
+        form.save()
+        return redirect("index")
+    return render(request, "animals/update_animal.html", {"form" : form, "animal" : animal})
+
+def delete_animal(request, id):
+    animal = Animal.objects.get(id = id)
+    if request.method == "POST":
+        animal.delete()
+        return redirect("index")
+    return render(request, "animals/delete_animal.html",{"animal" : animal})
+        
