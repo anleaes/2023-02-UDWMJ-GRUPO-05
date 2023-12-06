@@ -1,3 +1,2 @@
-db.sqlite3
-__pycache__/
-migrations/
+clinica_veterinaria/apps/animals/__pycache__
+clinica_veterinaria/apps/animals/migrations
