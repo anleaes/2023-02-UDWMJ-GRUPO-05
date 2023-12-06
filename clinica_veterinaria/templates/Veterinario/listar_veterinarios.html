@@ -35,10 +35,16 @@
    
     <p>Lista Veterinários</p>
     <ul>
-        {% for veterinario in veterinarios %}
-            <li><a>Id:</a>{{ veterinario.id }} <a> | Nome: </a>{{ veterinario.nome }} <a> | especializacao: </a>{{ veterinario.especializacao }}</li>
-            <a href="{% url 'excluir_veterinario' veterinario.id %}">Deletar</a>
-        {% endfor %}
+        <h1>Lista de Veterinários</h1>
+
+<ul>
+    {% for veterinario in veterinarios %}
+        <li>
+            {{ veterinario.nome }} <a> | especializacao: </a>{{ veterinario.especializacao }}
+            <a href="{% url 'excluir_veterinario' id=veterinario.id %}">Deletar</a>
+        </li>
+    {% endfor %}
+</ul>
        
     </ul>
     
@@ -48,4 +54,6 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html> 
+
+
 
