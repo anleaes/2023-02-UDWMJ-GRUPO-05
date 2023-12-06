@@ -23,3 +23,18 @@ def create_usuario(request):
         form = UsuarioForm()
         
     return render(request, "usuarios/create_usuarios.html", {"form" : form})
+
+def update_usuario(request, id):
+    usuario = Usuario.objects.get(id = id)
+    form = UsuarioForm(request.POST or None, instance = usuario)
+    if form.is_valid():
+        form.save()
+        return redirect("index_usuario")
+    return render(request, "usuarios/update_usuarios.html", {"form" : form, "usuario" : usuario})
+
+def delete_usuario(request, id):
+    usuario = Usuario.objects.get(id = id)
+    if request.method == "POST":
+        usuario.delete()
+        return redirect("index_usuario")
+    return render(request, "usuarios/delete_usuarios.html",{"usuario" : usuario})
