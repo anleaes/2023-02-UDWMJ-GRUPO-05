@@ -1,8 +1,4 @@
-/clinica_veterinaria/apps/animals/__pycache__
-/clinica_veterinaria/apps/animals/*migrations
-/clinica_veterinaria/apps/core/__pycache__
-/clinica_veterinaria/clinica_veterinaria/*__pycache__
-*.sqlite3
+clinica_veterinaria/apps/core/__pycache__/
 
 
 
