@@ -37,8 +37,8 @@
         <p>Lista de Produtos</p>
         
         <ul>
-            {% for produtos in produto %}
-                <li><a>Id: </a>{{produtos.id}} <a> | Nome: </a> {{ produtos.nome }} <a> | Descricao: </a>{{produtos.descricao}} <a> | Quantidade: </a>{{produtos.quantidade}} <a> |  Preco: </a>{{produtos.preco}}</li>
+            {% for produto in produtos %}
+                <li><a>Id: </a>{{produto.id}} <a> | Nome: </a> {{ produto.nome }} <a> | Descricao: </a>{{produto.descricao}} <a> | Quantidade: </a>{{produto.quantidade}} <a> |  Preco: </a>{{produto.preco}}</li>
             {% endfor %}
         </ul>
         <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
