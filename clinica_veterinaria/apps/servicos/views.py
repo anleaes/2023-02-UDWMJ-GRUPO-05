@@ -22,3 +22,11 @@ def create_servico(request):
         form = ServicosForm
         
     return render(request, "servicos/create_servicos.html", {"form" : form})
+
+def update_servico(request, id):
+    servico = Servicos.objects.get(id = id)
+    form = ServicosForm(request.POST or None, instance = servico)
+    if form.is_valid():
+        form.save()
+        return redirect("index_servico")
+    return render(request, "servicos/update_servicos.html", {"form" : form, "servico": servico})
