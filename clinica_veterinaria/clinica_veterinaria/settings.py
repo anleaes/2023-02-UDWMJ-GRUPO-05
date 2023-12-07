@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'core.apps.CoreConfig',
-    'Veterinario.apps.VeterinarioConfig'
+    'Veterinario.apps.VeterinarioConfig',
+    'animals.apps.AnimalsConfig',
+    'usuarios.apps.UsuariosConfig',
 ]
 
 MIDDLEWARE = [
