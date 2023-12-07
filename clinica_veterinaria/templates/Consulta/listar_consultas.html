@@ -1,18 +1,16 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>{% block title %}Clinica Veterinaria{% endblock title %}</title>
+    <title>{% block title %}Lista de Consultas{% endblock title %}</title>
 </head>
+
 <body>
-
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Clinica Veterinaria</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,22 +21,30 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown05">
-                        <a class="dropdown-item" href="{% url 'listar_consultas' %}">Consultas</a>
-                        <a class="dropdown-item" href="#">Pedidos</a>
-                        <a class="dropdown-item" href="{% url 'index_produto' %}">Produtos</a>
-                        <a class="dropdown-item" href="{% url 'index_usuario' %}">Usuarios</a>
-                        <a class="dropdown-item" href="{% url 'index_animal' %}">Pets</a>
-                        <a class="dropdown-item" href="{% url 'listar_veterinarios' %}">Veterinario</a>
-                        <a class="dropdown-item" href="{% url 'index_servico' %}">Servicos</a>
+                        <a class="dropdown-item" href="#">Deletar Consulta</a>
+                        <a class="dropdown-item" href="{% url 'nova_consulta' %}">Agendar Consulta</a>
                     </div>
                 </li>
             </ul>
             <form action="#" method="GET" class="form-inline my-2 my-md-0" style="margin-right: 10px">
                 <input class="form-control" name="query" type="text" aria-label="Buscar" style="margin-right: 10px">
                 <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
         </div>
     </nav>
-
+   
+    <div class="container">
+        <h1>Lista de Consultas</h1>
+        <ul>
+            {% for consulta in consultas %}
+                <li>
+                    Data: {{ consulta.data }} <a> | Hora: </a>{{ consulta.hora }} | Veterinário: </a>{{ consulta.veterinario.nome }} | Animal: </a>{{ consulta.animal.name }}
+                    
+                    <a href="{% url 'excluir_consulta' id=consulta.id %}">Deletar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
     
     <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.mask.min.js' %}"></script>
