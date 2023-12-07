@@ -29,3 +29,10 @@ def update_produto(request, id):
         form.save()
         return redirect("index_produto")
     return render(request, "produtos/update_produtos.html", {"form" : form, "produto": produto})
+
+def delete_produto(request, id):
+    produto = Produto.objects.get(id == id)
+    if request.method == "POST":
+        produto.delete()
+        return redirect("index_produto")
+    return render(request, "produtos/delete_produtos.html", {"produto" : produto})
