@@ -3,7 +3,9 @@ from Consulta.forms import ConsultaForm
 from Consulta.models import Consulta
 
 
-
+def listar_consultas(request):
+    consultas = Consulta.objects.all()
+    return render(request, 'listar_consultas.html', {'consultas': consultas})
 
 def nova_consulta(request):
     if request.method == 'POST':
