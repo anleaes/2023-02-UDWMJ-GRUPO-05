@@ -16,6 +16,7 @@ def nova_consulta(request):
     else:
         form = ConsultaForm()
 
-    return render(request, 'nova_consulta.html', {'form': form}) # aqui deve ser o render do agendamento
-                                                                 # talvez seja necessario adicionar 
-                                                                 # 'Consulta/nova_consulta.html'
+    return render(request, 'nova_consulta.html', {'form': form}) 
+# aqui deve ser o render do agendamento
+# talvez seja necessario adicionar 
+# 'Consulta/nova_consulta.html'
