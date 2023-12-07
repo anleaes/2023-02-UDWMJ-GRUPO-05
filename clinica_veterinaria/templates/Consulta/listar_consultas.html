@@ -38,8 +38,8 @@
         <ul>
             {% for consulta in consultas %}
                 <li>
-                    Data: {{ consulta.data }} <a> | Hora: </a>{{ consulta.hora }} | Veterinário: </a>{{ consulta.veterinario.nome }} | Animal: </a>{{ consulta.animal.name }}
-                    
+                    Data: {{ consulta.data }} <a> | Hora: </a>{{ consulta.hora }} | Veterinário: </a>{{ consulta.veterinario.nome }} | Animal: </a>{{ consulta.animal.name }}<br>
+                    Observação: {{consulta.observacao}}
                     <a href="{% url 'excluir_consulta' id=consulta.id %}">Deletar</a>
                 </li>
             {% endfor %}
