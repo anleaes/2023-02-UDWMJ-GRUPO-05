@@ -38,3 +38,12 @@ def delete_usuario(request, id):
         usuario.delete()
         return redirect("index_usuario")
     return render(request, "usuarios/delete_usuarios.html",{"usuario" : usuario})
+
+def search_usuarios(request):
+    template_name = 'usuarios/list_usuarios.html'
+    query = request.GET.get('query')
+    usuarios = Usuario.objects.filter(name=query)
+    context = {
+        'usuarios': usuarios,
+    }
+    return render(request,template_name, context)
