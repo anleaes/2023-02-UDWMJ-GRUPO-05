@@ -30,3 +30,10 @@ def update_servico(request, id):
         form.save()
         return redirect("index_servico")
     return render(request, "servicos/update_servicos.html", {"form" : form, "servico": servico})
+
+def delete_servico(request, id):
+    servico = Servicos.objects.get(id = id)
+    if request.method == "POST":
+        servico.delete()
+        return redirect("index_servico")
+    return render(request, "servicos/delete_servicos.html", {"servico" : servico})
