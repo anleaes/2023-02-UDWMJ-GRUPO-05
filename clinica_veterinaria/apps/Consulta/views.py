@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from Consulta.forms import ConsultaForm
 from Consulta.models import Consulta
 
@@ -20,3 +20,13 @@ def nova_consulta(request):
 # aqui deve ser o render do agendamento
 # talvez seja necessario adicionar 
 # 'Consulta/nova_consulta.html'
+
+def excluir_consulta(request, id):
+    consulta = get_object_or_404(Consulta, pk=id)
+    
+    if request.method == 'POST':
+        consulta.delete()
+        return redirect('listar_consultas')
+
+#    return render(request, 'excluir_consulta.html', {'consulta': consulta})
+    # essa linha poderá ser excluida se quiser.
