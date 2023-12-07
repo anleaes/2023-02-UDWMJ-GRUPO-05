@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'usuarios.apps.UsuariosConfig',
     'produtos.apps.ProdutosConfig',
     'Veterinario.apps.VeterinarioConfig',
+    'servicos.apps.ServicosConfig',
 ]
 
 MIDDLEWARE = [
