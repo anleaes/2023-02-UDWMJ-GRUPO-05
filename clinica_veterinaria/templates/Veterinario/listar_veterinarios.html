@@ -40,7 +40,7 @@
 <ul>
     {% for veterinario in veterinarios %}
         <li>
-            {{ veterinario.nome }} <a> | especializacao: </a>{{ veterinario.especializacao }}
+            {{ veterinario.nome }} <a> | telefone: </a>{{veterinario.telefone}} | especializacao: </a>{{ veterinario.especializacao }}
             <a href="{% url 'excluir_veterinario' id=veterinario.id %}">Deletar</a>
         </li>
     {% endfor %}
