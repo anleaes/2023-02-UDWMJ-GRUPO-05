@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from produtos.models import Produto
+from produtos.forms import ProdutoForm
 
-# Create your views here.
+def index_produto(request):
+    produtos = Produto.objects.all()
+    context = {"produtos" : produtos}
+    return render(request, "produtos/list_produtos.html", context)
