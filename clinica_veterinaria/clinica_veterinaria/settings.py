@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'animals.apps.AnimalsConfig',
     'usuarios.apps.UsuariosConfig',
+    'produtos.apps.ProdutosConfig',
 ]
 
 MIDDLEWARE = [
