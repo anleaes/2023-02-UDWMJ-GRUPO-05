@@ -21,3 +21,11 @@ def create_produto(request):
         form = ProdutoForm
         
     return render(request, "produtos/create_produtos.html", {"form" : form})
+
+def update_produto(request, id):
+    produto = Produto.objects.get(id = id)
+    form = ProdutoForm(request.POST or None, instance = produto)
+    if form.is_valid():
+        form.save()
+        return redirect("index_produto")
+    return render(request, "produtos/update_produtos.html", {"form" : form, "produto": produto})
