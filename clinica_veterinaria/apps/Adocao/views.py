@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from Consulta.forms import AdocaoForm
-from Consulta.models import Adocao
+from Adocao.forms import AdocaoForm
+from Adocao.models import Adocao
 
 
 def listar_adocoes(request):
@@ -20,6 +20,11 @@ def nova_entrada(request):
 # aqui deve ser o render do agendamento
 # talvez seja necessario adicionar 
 # 'Consulta/nova_consulta.html'
+
+def excluir_adocao(request, id):
+    adocao = get_object_or_404(Adocao, pk=id)
+    adocao.delete()
+    return redirect('listar_adocoes')
 
 
 
